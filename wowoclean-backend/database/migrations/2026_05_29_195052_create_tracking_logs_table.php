@@ -10,16 +10,11 @@ return new class extends Migration
     {
         Schema::create('tracking_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('container_id');
+            $table->foreignId('container_id')->constrained('containers')->onDelete('cascade');
             $table->string('location');
             $table->timestamp('timestamp');
             $table->text('description');
             $table->timestamps();
-
-            $table->foreign('container_id')
-                  ->references('container_id')
-                  ->on('containers')
-                  ->onDelete('cascade');
         });
     }
 

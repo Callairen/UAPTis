@@ -23,6 +23,6 @@ class TrackingLog extends Model
 
     public function container(): BelongsTo
     {
-        return $this->belongsTo(Container::class, 'container_id', 'container_id');
+        return $this->belongsTo(Container::class);
     }
 }

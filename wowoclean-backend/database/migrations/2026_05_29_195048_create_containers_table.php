@@ -9,7 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('containers', function (Blueprint $table) {
-            $table->string('container_id')->primary();
+            $table->id();
+            $table->string('container_id', 7)->unique();
             $table->string('waste_type');
             $table->integer('weight_kg');
             $table->enum('status', ['Active', 'Archived'])->default('Active');
